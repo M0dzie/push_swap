@@ -6,7 +6,7 @@
 #    By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 10:35:55 by thmeyer           #+#    #+#              #
-#    Updated: 2022/12/20 14:44:05 by thmeyer          ###   ########.fr        #
+#    Updated: 2022/12/21 11:55:32 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ RM = rm -rf
 SRCS = swap.c \
 		push.c \
 		rotate.c \
-		reverse_rotate.c
+		reverse_rotate.c \
+		push_swap.c
 
 OBJS = $(SRCS:%.c=objs/%.o)
 DIR_OBJS = objs/
@@ -48,11 +49,11 @@ clean:
     
 fclean: clean
 	$(RM) $(NAME)
-	$(MAKE) clean -C Libft/
+	$(MAKE) -C Libft/ clean
 
 re: fclean
 	$(MAKE) all
-	$(MAKE) fclean -C Libft/
+	$(MAKE) -C Libft/ fclean
 
 directory:
 	@mkdir -p $(DIR_OBJS)
