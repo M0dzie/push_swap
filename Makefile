@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: thmeyer <marvin42@42.fr>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 10:35:55 by thmeyer           #+#    #+#              #
-#    Updated: 2022/12/21 11:55:32 by thmeyer          ###   ########.fr        #
+#    Updated: 2022/12/22 16:27:36 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS = swap.c \
 		push.c \
 		rotate.c \
 		reverse_rotate.c \
-		push_swap.c
+		main.c
 
 OBJS = $(SRCS:%.c=objs/%.o)
 DIR_OBJS = objs/
@@ -49,11 +49,11 @@ clean:
     
 fclean: clean
 	$(RM) $(NAME)
-	$(MAKE) -C Libft/ clean
+	$(MAKE) fclean -C Libft/
 
 re: fclean
 	$(MAKE) all
-	$(MAKE) -C Libft/ fclean
+	$(MAKE) all -C Libft/
 
 directory:
 	@mkdir -p $(DIR_OBJS)
