@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:49:15 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/29 14:35:25 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/29 15:32:44 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@
  * @param lst the address of a pointer to a node
  * @param del the address of the function used to delete the content of the node
  */
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_list **lst)
 {
 	t_list	*lst_next;
 
-	if (!lst || !del)
+	if (!lst)
 		return ;
 	while ((*lst))
 	{
 		lst_next = (*lst)->next;
-		ft_lstdelone((*lst), del);
+		ft_lstdelone(*lst);
 		(*lst) = lst_next;
 	}
 	(*lst) = 0;

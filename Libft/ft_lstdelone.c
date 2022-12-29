@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:46:12 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/29 14:35:36 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/29 15:33:44 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
  * @param lst the node to free
  * @param del the address of the function used to delete the content
  */
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_list *lst)
 {
-	if (!lst || !del)
+	if (!lst)
 		return ;
-	del(lst->content);
+	lst->content = NULL;
+	lst->next = NULL;
 	free(lst);
 }

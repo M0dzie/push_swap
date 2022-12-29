@@ -6,7 +6,7 @@
 #    By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 13:07:05 by thmeyer           #+#    #+#              #
-#    Updated: 2022/12/29 09:43:46 by thmeyer          ###   ########.fr        #
+#    Updated: 2022/12/29 15:40:28 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,9 +57,8 @@ SRCS = ft_isalpha.c \
 	ft_striteri.c \
 	ft_printf.c \
 	basic_ft.c \
-	printnbr.c
-
-SRCS_BONUS = ft_lstnew.c \
+	printnbr.c \
+	ft_lstnew.c \
 	ft_lstadd_front.c \
 	ft_lstsize.c \
 	ft_lstlast.c \
@@ -70,7 +69,6 @@ SRCS_BONUS = ft_lstnew.c \
 	ft_lstmap.c
 
 OBJS = $(SRCS:%.c=objs/%.o)
-OBJS_BONUS = $(SRCS_BONUS:%.c=objs/%.o)
 DIR_OBJS = objs/
 
 all: directory $(NAME)
@@ -78,14 +76,11 @@ all: directory $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(OBJS_BONUS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS) $(OBJS_BONUS)
-
 objs/%.o: %.c Makefile $(DIR_OBJS) $(HEADER)
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
-	$(RM) $(OBJS) $(OBJS_BONUS)
+	$(RM) $(OBJS)
 	$(RM) $(DIR_OBJS)
 
 fclean: clean
@@ -97,4 +92,4 @@ re: fclean
 directory:
 	@mkdir -p $(DIR_OBJS)
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
