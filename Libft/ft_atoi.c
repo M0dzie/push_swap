@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 13:20:36 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/11/23 15:01:57 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/29 16:35:04 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  * @param str 
  * @return
  */
-int	ft_atoi(const char *str)
+long long int	ft_atoi(const char *str)
 {
 	long long int	i;
 	int				sign;
@@ -40,5 +40,5 @@ int	ft_atoi(const char *str)
 		result = result * 10 + ((str[i] - 48) * sign);
 		i++;
 	}
-	return ((int)result);
+	return (result);
 }
