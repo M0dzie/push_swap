@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thmeyer <marvin42@42.fr>                   +#+  +:+       +#+         #
+#    By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 10:35:55 by thmeyer           #+#    #+#              #
-#    Updated: 2022/12/22 16:27:36 by thmeyer          ###   ########.fr        #
+#    Updated: 2022/12/29 09:46:05 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,6 @@ HEADER = push_swap.h
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-
-AR = ar
-ARFLAGS = -rcs
 
 RM = rm -rf
 
@@ -29,15 +26,15 @@ SRCS = swap.c \
 
 OBJS = $(SRCS:%.c=objs/%.o)
 DIR_OBJS = objs/
-LIBFT_OBJS = Libft/objs
+LIBFT = Libft/
 
 all: $(NAME)
 
 $(NAME): directory rsc $(OBJS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)/libft.a
 
 rsc:
-	$(MAKE) -C Libft/
+	$(MAKE) -C $(LIBFT)
 
 objs/%.o: %.c Makefile $(DIR_OBJS) $(HEADER)
 	$(CC) $(CFLAGS) -o $@ -c $<
@@ -45,15 +42,15 @@ objs/%.o: %.c Makefile $(DIR_OBJS) $(HEADER)
 clean:
 	$(RM) $(OBJS)
 	$(RM) $(DIR_OBJS)
-	$(RM) $(LIBFT_OBJS)
+	$(MAKE) clean -C $(LIBFT)
     
 fclean: clean
 	$(RM) $(NAME)
-	$(MAKE) fclean -C Libft/
+	$(MAKE) fclean -C $(LIBFT)
 
 re: fclean
 	$(MAKE) all
-	$(MAKE) all -C Libft/
+	$(MAKE) all -C $(LIBFT)
 
 directory:
 	@mkdir -p $(DIR_OBJS)

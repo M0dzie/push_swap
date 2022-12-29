@@ -3,67 +3,112 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin42@42.fr>                   +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 17:16:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/22 17:35:27 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/29 13:09:21 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-int	count_arg_str(char *argv)
+t_stack	*stack_new(int arg)
 {
-	size_t	i;
-	size_t	count;
+	t_stack	*new;
 
-	i = 0;
-	count = 0;
-	while (argv[i])
+	new = malloc(sizeof(t_stack));
+	if (new)
 	{
-		if (ft_isdigit(argv[i]) && !ft_isdigit(argv[i - 1]))
-			count++;
-// a la place de count++ faudrait mettre le chiffre dans une node
-		if (ft_isalpha(argv[i]))
-			exit(0);
-// free les nodes qui ont deja ete implementees (ft_lstclear ?)
-		i++;
+		new->value = arg;
+		new->next = 0;
 	}
-	printf("arg_count = %zu\n", count);
-	return (count);
-} 
+	return (new);
+}
+
+t_stack	*stack_last(t_stack *lst)
+{
+	t_stack	*last_lst;
+
+	if (!lst)
+		return (0);
+	while (lst)
+	{
+		last_lst = lst;
+		lst = lst->next;
+	}
+	return (last_lst);
+}
+
+void	stack_add_back(t_stack **lst, t_stack *new)
+{
+	t_stack	*last_lst;
+
+	if (!(*lst))
+		(*lst) = new;
+	else
+	{
+		last_lst = stack_last((*lst));
+		last_lst->next = new;
+	}
+}
+
+void	print_stack(t_stack *stack)
+{
+	int		i;
+	t_stack	*tmp;
+
+	tmp = stack;
+	i = 0;
+	while (tmp)
+	{
+		printf("stack %ie : %i\n", i, stack->value);
+		i++;
+		tmp = tmp->next;
+	}
+}
 
 int	main(int argc, char **argv)
 {
 	int		i;
-	int		arg_count;
-	t_stack	*list;
-	t_stack	*new;
+	int		j;
+	char	*arg;
+	char	**all_arg;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
-	list = NULL;
-	i = 2;
-	if (argc == 1)
-		exit(0);
-	if (argc == 2)
+	i = 0;
+	j = -1;
+	stack_a = NULL;
+	stack_b = NULL;
+	arg = malloc(sizeof(char));
+	if (!arg)
+		return (0);
+	if (argc <= 1)
+		return (0);
+	if (argc > 1)
 	{
-		arg_count = count_arg_str(argv[1]);
-		// if (check_double_digit(argv[1], arg_count) == 1)
-		// 	exit(0);
+		while (argv[++i])
+		{
+			arg = ft_strjoin(arg, argv[i]);
+			if (!arg)
+				return (free(arg), 0);
+		}
 	}
-	// while (argc > i)
-	// {
-	// 	new = ft_lstnew(argv[i]);
-	// 	printf("%s", argv[i]);
-	// 	ft_lstadd_back(&list, new);
-	// 	i++;
-	// }
+	printf("argument(s) en string : %s\n", arg);
+	all_arg = ft_split(arg, ' ');
+	for (int h = 0; all_arg[h]; h++)
+		printf ("%ie argument : %s\n", h, all_arg[h]);
+	while (all_arg[++j])
+		stack_add_back(&stack_a, stack_new(ft_atoi(all_arg[j])));
+	print_stack(stack_a);
 	return (0);
 }
 
-// Parsing les arguments rentrés en paramètre -> les mettre dans des nodes
-// Parsing selon deux méthodes : soit argc == 2 et c'est une string (split), ou
-// c'est que des int solo
-// Gérer les cas d'erreurs : doublons, lettres, aucun arg
 // Faire une fonction si tout est déjà dans le bon ordre, du genre already_sort
 // Faire une fonction pour 3 et 5 nb a sort et une pour les plus grands nbs
+
+// Tout mettre sur la pile B, et check le plus haut et le plus bas de la pile
+// puis le mettre sur A : apparemment c'est le moins d'instructions
+
+// Faire une fonction check pour les doublons et int max int min via la str
