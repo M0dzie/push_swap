@@ -6,12 +6,84 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 17:16:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/29 15:44:28 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/29 16:47:13 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
+
+// void	check_wrong_arg(char *arg)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (arg)
+// 	{
+// 		if (arg[i] == '-')
+// 		{
+// 			ft_putstr_fd("Error", 2);
+// 			exit(0);
+// 		}
+// 		i++;
+// 	}
+// }
+
+// void	check_double(char **all_arg)
+// {
+// 	int	i;
+// 	int	j;
+
+// 	i = 0;
+// 	while (all_arg[i] && all_arg[i + 1] != '\0')
+// 	{
+// 		j = i + 1;
+// 		if (ft_strcmp(all_arg[i], all_arg[j]) == 0)
+// 		{
+// 			ft_putstr_fd("Error", 2);
+// 			exit(0);
+// 		}
+// 		i++;
+// 	}
+// }
+
+int	ps_isdigit(char *str)
+{
+	int	i;
+
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+		i++;
+	if (str[i])
+		return (1);
+	return (0);
+}
+
+int	check_error(char **all_arg)
+{
+	int				i;
+	int				j;
+	long long int	int_arg;
+
+	i = 0;
+	while (all_arg[i])
+	{
+		j = 0;
+		if (!ps_isdigit(all_arg[i]))
+			return (1);
+		int_arg = ft_atoi(all_arg[i]);
+		if (int_arg > INT_MAX || int_arg < INT_MIN)
+			return (1);
+		if (int_arg == ft_atoi(all_arg[i + 1]))
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 void	print_stack(t_list *stack)
 {
@@ -42,24 +114,19 @@ char	**parsing_arg(char **argv)
 	{
 		arg = ft_strjoin(arg, argv[i]);
 		if (!arg)
-		{
-			free(arg);
 			exit(0);
-		}
 	}
 	printf("argument(s) en string : %s\n", arg);
 	all_arg = ft_split(arg, ' ');
-	if (!all_arg)
+	if (!all_arg || check_error(all_arg) != 0)
 	{
-		free(arg);
+		ft_putstr_fd("Error", 2);
 		exit(0);
 	}
 	for (int h = 0; all_arg[h]; h++)
 		printf ("%ie argument : %s\n", h, all_arg[h]);
 	return (all_arg);
 }
-
-
 
 int	main(int argc, char **argv)
 {

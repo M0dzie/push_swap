@@ -6,12 +6,13 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 12:36:10 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/29 15:39:19 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/29 16:47:42 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# include <limits.h>
 # include "Libft/libft.h"
 
 char	double_reverse_rotate(t_list *stack_a, t_list stack_b);
@@ -25,5 +26,8 @@ char	rotate_a(t_list *stack_a);
 char	rotate_b(t_list *stack_b);
 char	swap_a(t_list *stack_a);
 char	swap_b(t_list *stack_b);
+
+int		check_error(char **all_arg);
+int		ps_isdigit(char *str);
 
 #endif

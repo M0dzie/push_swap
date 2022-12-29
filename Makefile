@@ -6,7 +6,7 @@
 #    By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 10:35:55 by thmeyer           #+#    #+#              #
-#    Updated: 2022/12/29 15:41:12 by thmeyer          ###   ########.fr        #
+#    Updated: 2022/12/29 16:24:46 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ HEADER = push_swap.h
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+DEBUG = -fsanitize=address
 
 RM = rm -rf
 
