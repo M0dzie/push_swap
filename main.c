@@ -6,18 +6,44 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 17:16:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/29 13:09:21 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/29 14:20:47 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
+void	stack_clear(t_stack **stack)
+{
+	t_stack	*stack_next;
+
+	if (!stack)
+		return ;
+	while ((*stack))
+	{
+		stack_next = (*stack)->next;
+		stack_delone(*stack);
+		(*stack) = stack_next;
+	}
+	(*stack) = 0;
+}
+
+void	stack_delone(t_stack *stack)
+{
+	if (!stack)
+		return ;
+	stack->value = 0;
+	stack->next = NULL;
+	free(stack);
+}
+
 t_stack	*stack_new(int arg)
 {
 	t_stack	*new;
 
 	new = malloc(sizeof(t_stack));
+	if (!new)
+		exit(0);
 	if (new)
 	{
 		new->value = arg;
@@ -26,30 +52,30 @@ t_stack	*stack_new(int arg)
 	return (new);
 }
 
-t_stack	*stack_last(t_stack *lst)
+t_stack	*stack_last(t_stack *stack)
 {
-	t_stack	*last_lst;
+	t_stack	*last_stack;
 
-	if (!lst)
+	if (!stack)
 		return (0);
-	while (lst)
+	while (stack)
 	{
-		last_lst = lst;
-		lst = lst->next;
+		last_stack = stack;
+		stack = stack->next;
 	}
-	return (last_lst);
+	return (last_stack);
 }
 
-void	stack_add_back(t_stack **lst, t_stack *new)
+void	stack_add_back(t_stack **stack, t_stack *new)
 {
-	t_stack	*last_lst;
+	t_stack	*last_stack;
 
-	if (!(*lst))
-		(*lst) = new;
+	if (!(*stack))
+		(*stack) = new;
 	else
 	{
-		last_lst = stack_last((*lst));
-		last_lst->next = new;
+		last_stack = stack_last((*stack));
+		last_stack->next = new;
 	}
 }
 
@@ -62,7 +88,7 @@ void	print_stack(t_stack *stack)
 	i = 0;
 	while (tmp)
 	{
-		printf("stack %ie : %i\n", i, stack->value);
+		printf("stack %ie : %i\n", i, tmp->value);
 		i++;
 		tmp = tmp->next;
 	}
