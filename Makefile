@@ -6,7 +6,7 @@
 #    By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 10:35:55 by thmeyer           #+#    #+#              #
-#    Updated: 2022/12/29 16:24:46 by thmeyer          ###   ########.fr        #
+#    Updated: 2022/12/30 11:33:08 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,35 +23,40 @@ SRCS = swap.c \
 		push.c \
 		rotate.c \
 		reverse_rotate.c \
+		parsing.c \
+		fill_stack.c \
 		main.c
 
 OBJS = $(SRCS:%.c=objs/%.o)
 DIR_OBJS = objs/
 LIBFT = Libft/
+LIBFT_A = Libft/libft.a
 
-all: $(NAME)
+all: directory $(NAME)
 
-$(NAME): directory rsc $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)/libft.a
+$(NAME): $(LIBFT_A) $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_A)
 
-rsc:
+$(LIBFT_A):
 	$(MAKE) -C $(LIBFT)
 
-objs/%.o: %.c Makefile $(DIR_OBJS) $(HEADER)
+$(DIR_OBJS)%.o: %.c Makefile $(HEADER)
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
+	$(MAKE) clean -C $(LIBFT)
 	$(RM) $(OBJS)
 	$(RM) $(DIR_OBJS)
-	$(MAKE) clean -C $(LIBFT)
     
-fclean: clean
-	$(RM) $(NAME)
+fclean: 
 	$(MAKE) fclean -C $(LIBFT)
+	$(MAKE) clean
+	$(RM) $(NAME)
 
-re: fclean
+re: 
+	$(MAKE) re -C $(LIBFT)
+	$(MAKE) fclean
 	$(MAKE) all
-	$(MAKE) all -C $(LIBFT)
 
 directory:
 	@mkdir -p $(DIR_OBJS)

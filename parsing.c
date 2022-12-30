@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:54:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/30 09:55:58 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/30 10:42:31 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	**parsing_arg(char **argv)
 	if (!all_arg || check_error(all_arg) != 0)
 	{
 		ft_putstr_fd("Error\n", 2);
-		exit(0);
+		exit(-1);
 	}
 	for (int h = 0; all_arg[h]; h++)
 		printf ("%de argument : %s\n", h, all_arg[h]);
