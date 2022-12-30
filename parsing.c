@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:54:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/30 12:25:27 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/30 13:23:43 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,5 @@ char	**parsing_arg(char **argv)
 	}
 	for (int h = 0; all_arg[h]; h++)
 		printf ("%de argument : %s\n", h, all_arg[h]);
-	return (all_arg);
+	return (free(arg), all_arg);
 }

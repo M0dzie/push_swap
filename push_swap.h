@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 12:36:10 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/30 12:31:29 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/30 15:02:54 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@ int		stack_is_sort(t_stack *stack);
 t_stack	*stack_last(t_stack *stack);
 t_stack	*stack_new(int value);
 
-void	double_reverse_rotate(t_stack *stack_a, t_stack stack_b);
-void	double_rotate(t_stack *stack_a, t_stack *stack_b);
-void	double_swap(t_stack *stack_a, t_stack *stack_b);
-void	free_stack(t_stack *stack);
+void	double_reverse_rotate(t_stack **stack_a, t_stack **stack_b);
+void	double_rotate(t_stack **stack_a, t_stack **stack_b);
+void	double_swap(t_stack **stack_a, t_stack **stack_b);
+void	free_stack(t_stack **stack);
 void	free_tab(char **all_arg);
-void	push_a(t_stack *stack_a, t_stack *stack_b);
-void	push_b(t_stack *stack_b, t_stack *stack_a);
-void	reverse_rotate_a(t_stack *stack_a);
-void	reverse_rotate_b(t_stack *stack_b);
-void	rotate_a(t_stack *stack_a);
-void	rotate_b(t_stack *stack_b);
+void	push_a(t_stack **stack_a, t_stack **stack_b);
+void	push_b(t_stack **stack_b, t_stack **stack_a);
+void	reverse_rotate_a(t_stack **stack_a);
+void	reverse_rotate_b(t_stack **stack_b);
+void	rotate_a(t_stack **stack_a);
+void	rotate_b(t_stack **stack_b);
 void	stack_add_back(t_stack **stack, t_stack *new);
-void	swap_a(t_stack *stack_a);
-void	swap_b(t_stack *stack_b);
+void	swap_a(t_stack **stack_a);
+void	swap_b(t_stack **stack_b);
 
 #endif

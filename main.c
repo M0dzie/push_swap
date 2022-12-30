@@ -6,26 +6,39 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 17:16:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/30 12:32:08 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/30 14:59:20 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	print_stack(t_stack *stack)
+void	print_stack_a(t_stack *stack_a)
 {
-	int		i;
+	t_stack	*tmp_a;
+
+	tmp_a = stack_a;
+	printf("\n");
+	while (tmp_a)
+	{
+		printf("%d\n", tmp_a->value);
+		tmp_a = tmp_a->next;
+	}
+	printf("-----\na\n\n");
+}
+
+void	print_stack_b(t_stack *stack_b)
+{
 	t_stack	*tmp;
 
-	tmp = stack;
-	i = 0;
+	tmp = stack_b;
+	printf("\n");
 	while (tmp)
 	{
-		printf("stack %de : %d\n", i, tmp->value);
-		i++;
+		printf("%d\n", tmp->value);
 		tmp = tmp->next;
 	}
+	printf("-----\nb\n\n");
 }
 
 void	free_tab(char **all_arg)
@@ -35,23 +48,20 @@ void	free_tab(char **all_arg)
 	i = -1;
 	while (all_arg[++i])
 		free(all_arg[i]);
+	free(all_arg);
 }
 
-void	free_stack(t_stack *stack)
+void	free_stack(t_stack **stack)
 {
 	t_stack	*next_stack;
 
-	if (!stack)
-		return ;
-	while (stack)
+	while ((*stack))
 	{
-		next_stack = stack->next;
-		stack->value = 0;
-		stack->next = NULL;
-		free(stack);
-		stack = next_stack;
+		next_stack = (*stack)->next;
+		free((*stack));
+		(*stack) = next_stack;
 	}
-	stack = NULL;
+	(*stack) = NULL;
 }
 
 int	main(int argc, char **argv)
@@ -72,11 +82,24 @@ int	main(int argc, char **argv)
 	free_tab(all_arg);
 	if (!stack_a)
 		return (0);
-	print_stack(stack_a);
 	if (stack_is_sort(stack_a) == -1)
-		printf("not sort");
-	// sort(stack_a, stack_b);
-	free_stack(stack_a);
+	{
+		// sort(stack_a, stack_b);
+		print_stack_a(stack_a);
+		print_stack_b(stack_b);
+		swap_a(&stack_a);
+		print_stack_a(stack_a);
+		print_stack_b(stack_b);
+		push_b(&stack_b, &stack_a);
+		push_b(&stack_b, &stack_a);
+		swap_b(&stack_b);
+		print_stack_a(stack_a);
+		print_stack_b(stack_b);
+		double_swap(&stack_a, &stack_b);
+		print_stack_a(stack_a);
+		print_stack_b(stack_b);
+	}
+	free_stack(&stack_a);
 	free(stack_b);
 	return (0);
 }

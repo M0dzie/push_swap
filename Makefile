@@ -6,7 +6,7 @@
 #    By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 10:35:55 by thmeyer           #+#    #+#              #
-#    Updated: 2022/12/30 11:54:29 by thmeyer          ###   ########.fr        #
+#    Updated: 2022/12/30 14:18:39 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,10 +33,13 @@ DIR_OBJS = objs/
 LIBFT = Libft/
 LIBFT_A = Libft/libft.a
 
-all: directory $(NAME)
+all: directory rsc $(NAME)
 
 $(NAME): $(LIBFT_A) $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_A)
+
+rsc:
+	$(MAKE) -C $(LIBFT)
 
 $(LIBFT_A):
 	$(MAKE) -C $(LIBFT)
