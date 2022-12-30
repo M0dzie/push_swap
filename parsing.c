@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:54:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/30 13:23:43 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/30 15:12:05 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ps_isdigit(char *str)
 	i = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if ((str[i] == '-' || str[i] == '+') && ft_isdigit(str[i + 1]))
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 		i++;
