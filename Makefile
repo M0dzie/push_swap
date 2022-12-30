@@ -6,7 +6,7 @@
 #    By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 10:35:55 by thmeyer           #+#    #+#              #
-#    Updated: 2022/12/30 11:33:08 by thmeyer          ###   ########.fr        #
+#    Updated: 2022/12/30 11:41:09 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,6 @@ fclean:
 	$(RM) $(NAME)
 
 re: 
-	$(MAKE) re -C $(LIBFT)
 	$(MAKE) fclean
 	$(MAKE) all
 
