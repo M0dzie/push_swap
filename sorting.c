@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 12:35:44 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/30 12:14:37 by thmeyer          ###   ########.fr       */
+/*   Created: 2022/12/30 11:54:08 by thmeyer           #+#    #+#             */
+/*   Updated: 2022/12/30 12:26:56 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
-// void	rotate_a(t_stack *stack_a)
-// {	
-// 	ft_putendl("ra");
-// }
+int	stack_is_sort(t_stack *stack)
+{
+	t_stack	*tmp;
 
-// void	rotate_b(t_stack *stack_b)
-// {
-// 	ft_putendl("rb");
-// }
-
-// void	double_rotate(t_stack *stack_a, t_stack *stack_b)
-// {
-// 	rotate_a(stack_a);
-// 	rotate_b(stack_b);
-// 	ft_putendl("rr");
-// }
+	while (stack->next != NULL)
+	{
+		tmp = stack->next;
+		if (stack->value > tmp->value)
+			return (-1);
+		stack = stack->next;
+	}
+	return (0);
+}

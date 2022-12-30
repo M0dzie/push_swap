@@ -6,7 +6,7 @@
 #    By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 10:35:55 by thmeyer           #+#    #+#              #
-#    Updated: 2022/12/30 11:41:09 by thmeyer          ###   ########.fr        #
+#    Updated: 2022/12/30 11:54:29 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS = swap.c \
 		reverse_rotate.c \
 		parsing.c \
 		fill_stack.c \
+		sorting.c \
 		main.c
 
 OBJS = $(SRCS:%.c=objs/%.o)

@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:54:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/30 10:42:31 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/30 12:25:27 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	**parsing_arg(char **argv)
 	i = 0;
 	arg = malloc(sizeof(char));
 	if (!arg)
-		return (0);
+		exit(0);
 	while (argv[++i])
 	{
 		arg = ft_strjoin(arg, argv[i]);
@@ -76,7 +76,8 @@ char	**parsing_arg(char **argv)
 	if (!all_arg || check_error(all_arg) != 0)
 	{
 		ft_putstr_fd("Error\n", 2);
-		exit(-1);
+		free_tab(all_arg);
+		exit(0);
 	}
 	for (int h = 0; all_arg[h]; h++)
 		printf ("%de argument : %s\n", h, all_arg[h]);

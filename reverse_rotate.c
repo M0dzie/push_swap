@@ -6,25 +6,25 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 12:35:41 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/29 09:22:40 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/30 12:14:34 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// char	reverse_rotate_a(t_stack *stack_a)
+// void	reverse_rotate_a(t_stack *stack_a)
 // {	
-//		return (ft_putendl("rra"));
+// 	ft_putendl("rra");
 // }
 
-// char	reverse_rotate_b(t_stack *stack_b)
+// void	reverse_rotate_b(t_stack *stack_b)
 // {
-//		return (ft_putendl("rrb"));
+// 	ft_putendl("rrb");
 // }
 
-// char	double_reverse_rotate(t_stack *stack_a, t_stack *stack_b)
+// void	double_reverse_rotate(t_stack *stack_a, t_stack *stack_b)
 // {
 // 	reverse_rotate_a(stack_a);
 // 	reverse_rotate_b(stack_b);
-//	return (ft_putendl("rrr"));
+// 	ft_putendl("rrr");
 // }

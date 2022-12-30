@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 17:16:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/30 11:29:11 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/30 12:32:08 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,30 @@ void	print_stack(t_stack *stack)
 	}
 }
 
-int	stack_is_sort(t_stack *stack)
+void	free_tab(char **all_arg)
 {
-	t_stack	*tmp;
+	int	i;
 
-	while (stack->next != NULL)
+	i = -1;
+	while (all_arg[++i])
+		free(all_arg[i]);
+}
+
+void	free_stack(t_stack *stack)
+{
+	t_stack	*next_stack;
+
+	if (!stack)
+		return ;
+	while (stack)
 	{
-		tmp = stack->next;
-		if (stack->value > tmp->value)
-			return (-1);
-		stack = stack->next;
+		next_stack = stack->next;
+		stack->value = 0;
+		stack->next = NULL;
+		free(stack);
+		stack = next_stack;
 	}
-	return (0);
+	stack = NULL;
 }
 
 int	main(int argc, char **argv)
@@ -57,14 +69,15 @@ int	main(int argc, char **argv)
 	all_arg = parsing_arg(argv);
 	while (all_arg[++j])
 		stack_add_back(&stack_a, stack_new(ft_atoi(all_arg[j])));
+	free_tab(all_arg);
 	if (!stack_a)
-		return (free(all_arg), 0);
+		return (0);
 	print_stack(stack_a);
 	if (stack_is_sort(stack_a) == -1)
-	{
 		printf("not sort");
-		// sort(stack_a, stack_b);
-	}
+	// sort(stack_a, stack_b);
+	free_stack(stack_a);
+	free(stack_b);
 	return (0);
 }
 
