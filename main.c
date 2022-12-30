@@ -6,46 +6,12 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 17:16:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/29 16:47:13 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/30 09:15:17 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-
-// void	check_wrong_arg(char *arg)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (arg)
-// 	{
-// 		if (arg[i] == '-')
-// 		{
-// 			ft_putstr_fd("Error", 2);
-// 			exit(0);
-// 		}
-// 		i++;
-// 	}
-// }
-
-// void	check_double(char **all_arg)
-// {
-// 	int	i;
-// 	int	j;
-
-// 	i = 0;
-// 	while (all_arg[i] && all_arg[i + 1] != '\0')
-// 	{
-// 		j = i + 1;
-// 		if (ft_strcmp(all_arg[i], all_arg[j]) == 0)
-// 		{
-// 			ft_putstr_fd("Error", 2);
-// 			exit(0);
-// 		}
-// 		i++;
-// 	}
-// }
 
 int	ps_isdigit(char *str)
 {
@@ -58,7 +24,7 @@ int	ps_isdigit(char *str)
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 		i++;
-	if (str[i])
+	if (!str[i])
 		return (1);
 	return (0);
 }
@@ -66,13 +32,11 @@ int	ps_isdigit(char *str)
 int	check_error(char **all_arg)
 {
 	int				i;
-	int				j;
 	long long int	int_arg;
 
 	i = 0;
 	while (all_arg[i])
 	{
-		j = 0;
 		if (!ps_isdigit(all_arg[i]))
 			return (1);
 		int_arg = ft_atoi(all_arg[i]);
@@ -94,7 +58,7 @@ void	print_stack(t_list *stack)
 	i = 0;
 	while (tmp)
 	{
-		printf("stack %ie : %s\n", i, tmp->content);
+		printf("stack %de : %s\n", i, tmp->content);
 		i++;
 		tmp = tmp->next;
 	}
@@ -124,7 +88,7 @@ char	**parsing_arg(char **argv)
 		exit(0);
 	}
 	for (int h = 0; all_arg[h]; h++)
-		printf ("%ie argument : %s\n", h, all_arg[h]);
+		printf ("%de argument : %s\n", h, all_arg[h]);
 	return (all_arg);
 }
 
