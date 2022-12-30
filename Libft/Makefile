@@ -6,7 +6,7 @@
 #    By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 13:07:05 by thmeyer           #+#    #+#              #
-#    Updated: 2022/12/29 15:40:28 by thmeyer          ###   ########.fr        #
+#    Updated: 2022/12/30 11:00:44 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,18 +76,20 @@ all: directory $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
-objs/%.o: %.c Makefile $(DIR_OBJS) $(HEADER)
+$(DIR_OBJS)%.o: %.c Makefile $(HEADER)
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
 	$(RM) $(OBJS)
 	$(RM) $(DIR_OBJS)
 
-fclean: clean
+fclean:
+	$(MAKE) clean
 	$(RM) $(NAME)
 
-re: fclean
-	make all
+re:
+	$(MAKE) fclean
+	$(MAKE) all
 
 directory:
 	@mkdir -p $(DIR_OBJS)
