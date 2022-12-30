@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 17:16:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/30 09:15:17 by thmeyer          ###   ########.fr       */
+/*   Updated: 2022/12/30 09:28:14 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	ps_isdigit(char *str)
 int	check_error(char **all_arg)
 {
 	int				i;
+	int				j;
 	long long int	int_arg;
 
 	i = 0;
@@ -42,8 +43,13 @@ int	check_error(char **all_arg)
 		int_arg = ft_atoi(all_arg[i]);
 		if (int_arg > INT_MAX || int_arg < INT_MIN)
 			return (1);
-		if (int_arg == ft_atoi(all_arg[i + 1]))
-			return (1);
+		j = i + 1;
+		while (all_arg[j])
+		{
+			if (int_arg == ft_atoi(all_arg[j]))
+				return (1);
+			j++;
+		}
 		i++;
 	}
 	return (0);
