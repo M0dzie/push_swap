@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 17:16:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/02 14:51:18 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/02 15:42:54 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	main(int argc, char **argv)
 		// else
 		// 	sort_large_amount(stack_a, stack_b);
 	}
-	print_stack_a(stack_a);
+	// print_stack_a(stack_a);
 	free_stack(&stack_a);
 	free(stack_b);
 	return (0);

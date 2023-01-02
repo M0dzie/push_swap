@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:54:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/02 12:16:34 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/02 15:59:58 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ps_isdigit(char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 		i++;
 	if (!str[i])
-		return (1);
+		return (-1);
 	return (0);
 }
 
@@ -38,15 +38,16 @@ int	check_error(char **all_arg)
 	while (all_arg[i])
 	{
 		if (!ps_isdigit(all_arg[i]))
-			return (1);
+			return (-1);
 		int_arg = ft_atoi(all_arg[i]);
-		if (int_arg > INT_MAX || int_arg < INT_MIN)
-			return (1);
+		if (ft_strlen(all_arg[i]) > 11 || int_arg > INT_MAX
+			|| int_arg < INT_MIN)
+			return (-1);
 		j = i + 1;
 		while (all_arg[j])
 		{
 			if (int_arg == ft_atoi(all_arg[j]))
-				return (1);
+				return (-1);
 			j++;
 		}
 		i++;
@@ -71,7 +72,7 @@ char	**parsing_arg(char **argv)
 			exit(0);
 	}
 	all_arg = ft_split(arg, ' ');
-	if (!all_arg || check_error(all_arg) != 0)
+	if (!all_arg || check_error(all_arg) == -1)
 	{
 		ft_putstr_fd("Error\n", 2);
 		free_tab(all_arg);
