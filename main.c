@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 17:16:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/02 14:10:12 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/02 14:51:18 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ int	main(int argc, char **argv)
 	if (stack_is_sort(stack_a) == -1)
 	{
 		if (j <= 5)
-			sort_small_amount(&stack_a, j);
+			sort_small_amount(&stack_a, &stack_b, j);
 		// else
-		// 	sort_high(stack_a, stack_b);
+		// 	sort_large_amount(stack_a, stack_b);
 	}
 	print_stack_a(stack_a);
 	free_stack(&stack_a);

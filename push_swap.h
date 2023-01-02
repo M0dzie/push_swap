@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 12:36:10 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/02 13:54:35 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/02 14:43:05 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ void	reverse_rotate_a(t_stack **stack_a);
 void	reverse_rotate_b(t_stack **stack_b);
 void	rotate_a(t_stack **stack_a);
 void	rotate_b(t_stack **stack_b);
-void	sort_small_amount(t_stack **stack_a, int argc);
+void	sort_four_arg(t_stack **stack_a, t_stack **stack_b);
+void	sort_small_amount(t_stack **stack_a, t_stack **stack_b, int argc);
+void	sort_three_arg(t_stack **stack_a);
 void	stack_add_back(t_stack **stack, t_stack *new);
 void	swap_a(t_stack **stack_a);
 void	swap_b(t_stack **stack_b);
@@ -49,5 +51,6 @@ void	swap_b(t_stack **stack_b);
 
 
 void	print_stack_a(t_stack *stack_a);
+void	print_stack_b(t_stack *stack_b);
 
 #endif
