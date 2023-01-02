@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 17:16:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/02 10:52:46 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/02 11:46:49 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,14 +90,14 @@ int	main(int argc, char **argv)
 		reverse_rotate_a(&stack_a);
 		print_stack_a(stack_a);
 		print_stack_b(stack_b);
-		// push_b(&stack_b, &stack_a);
-		// push_b(&stack_b, &stack_a);
-		// rotate_b(&stack_b);
-		// print_stack_a(stack_a);
-		// print_stack_b(stack_b);
-		// double_rotate(&stack_a, &stack_b);
-		// print_stack_a(stack_a);
-		// print_stack_b(stack_b);
+		push_b(&stack_b, &stack_a);
+		push_b(&stack_b, &stack_a);
+		rotate_b(&stack_b);
+		print_stack_a(stack_a);
+		print_stack_b(stack_b);
+		double_rotate(&stack_a, &stack_b);
+		print_stack_a(stack_a);
+		print_stack_b(stack_b);
 	}
 	free_stack(&stack_a);
 	free(stack_b);
