@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 11:54:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/02 15:42:58 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/02 16:17:31 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,10 @@ void	sort_five_arg(t_stack **stack_a, t_stack **stack_b)
 	{
 		swap_a(&(*stack_a));
 		if ((*stack_a)->value > last_stack->value)
+		{
 			reverse_rotate_a(&(*stack_a));
+			sort_five_arg(&(*stack_a), &(*stack_b));
+		}
 	}
 	if ((*stack_a)->value < (*stack_a)->next->value)
 	{
