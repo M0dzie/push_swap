@@ -6,12 +6,11 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 11:09:17 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/02 11:08:21 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/02 12:16:38 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 t_stack	*stack_new(int value)
 {

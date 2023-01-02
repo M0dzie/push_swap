@@ -6,12 +6,11 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 11:54:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/30 12:26:56 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/02 12:16:42 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	stack_is_sort(t_stack *stack)
 {

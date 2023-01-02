@@ -6,12 +6,11 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:54:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/30 15:17:40 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/02 12:16:34 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	ps_isdigit(char *str)
 {
@@ -71,7 +70,6 @@ char	**parsing_arg(char **argv)
 		if (!arg)
 			exit(0);
 	}
-	printf("argument(s) en string : %s\n", arg);
 	all_arg = ft_split(arg, ' ');
 	if (!all_arg || check_error(all_arg) != 0)
 	{
@@ -79,7 +77,5 @@ char	**parsing_arg(char **argv)
 		free_tab(all_arg);
 		exit(0);
 	}
-	for (int h = 0; all_arg[h]; h++)
-		printf ("%de argument : %s\n", h, all_arg[h]);
 	return (free(arg), all_arg);
 }
