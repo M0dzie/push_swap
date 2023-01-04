@@ -6,14 +6,14 @@
 #    By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 13:07:05 by thmeyer           #+#    #+#              #
-#    Updated: 2022/12/30 11:00:44 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/01/04 14:25:24 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 HEADER = libft.h
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 AR = ar

@@ -6,14 +6,14 @@
 #    By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 10:35:55 by thmeyer           #+#    #+#              #
-#    Updated: 2023/01/04 13:21:53 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/01/04 14:25:17 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 HEADER = push_swap.h
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 DEBUG = -fsanitize=address
 
