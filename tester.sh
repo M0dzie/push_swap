@@ -6,7 +6,7 @@
 #    By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/04 10:44:37 by thmeyer           #+#    #+#              #
-#    Updated: 2023/01/04 13:28:46 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/01/04 17:21:44 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,8 @@ echo -e "${GREEN}testing w/o arg :${NOCOLOR}"
 echo -e "${YELLOW}should display nothing${NOCOLOR}"
 echo ""
 echo -e "${GREEN}testing w/o arg in str :${NOCOLOR}"
+echo -e "${YELLOW}should display 'Error' in stderr :${NOCOLOR}"
 sleep .1s && ./push_swap ""
-echo -e "${YELLOW}should display nothing${NOCOLOR}"
 echo ""
 echo -e "${GREEN}testing different types of arg :${NOCOLOR}"
 echo -e "${YELLOW}should display some operations :${NOCOLOR}"

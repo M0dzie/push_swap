@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 11:09:17 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/02 12:16:38 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/04 17:07:49 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,26 @@ t_stack	*stack_last(t_stack *stack)
 		stack = stack->next;
 	}
 	return (last_stack);
+}
+
+int	fill_stack_a(t_stack **stack_a, char **all_arg)
+{
+	int	n_arg;
+	int	i;
+	int	index;
+
+	n_arg = -1;
+	while (all_arg[++n_arg])
+	{
+		i = 0;
+		index = 0;
+		while (all_arg[i])
+		{
+			if (ft_atoi(all_arg[n_arg]) > ft_atoi(all_arg[i]))
+				index++;
+			i++;
+		}
+		stack_add_back(&(*stack_a), stack_new(index));
+	}
+	return (free_tab(all_arg), n_arg);
 }

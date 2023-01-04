@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 12:35:41 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/02 11:48:18 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/04 17:27:26 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,4 @@ void	reverse_rotate_a(t_stack **stack_a)
 	last_a->next = (*stack_a);
 	(*stack_a) = last_a;
 	ft_putendl_fd("rra", 1);
-}
-
-void	reverse_rotate_b(t_stack **stack_b)
-{
-	t_stack	*last_b;
-	t_stack	*second_last_b;
-
-	last_b = stack_last((*stack_b));
-	second_last_b = (*stack_b);
-	while (second_last_b->next != last_b)
-		second_last_b = second_last_b->next;
-	second_last_b->next = NULL;
-	last_b->next = (*stack_b);
-	(*stack_b) = last_b;
-	ft_putendl_fd("rrb", 1);
-}
-
-void	double_reverse_rotate(t_stack **stack_a, t_stack **stack_b)
-{
-	reverse_rotate_a(stack_a);
-	reverse_rotate_b(stack_b);
-	ft_putendl_fd("rrr", 1);
 }

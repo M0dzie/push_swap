@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 12:35:47 by thmeyer           #+#    #+#             */
-/*   Updated: 2022/12/30 15:00:18 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/04 17:24:47 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,4 @@ void	swap_b(t_stack **stack_b)
 	switch_pos(first_b, second_b);
 	switch_pos(&(*first_b)->next, &(*second_b)->next);
 	ft_putendl_fd("sb", 1);
-}
-
-void	double_swap(t_stack **stack_a, t_stack **stack_b)
-{
-	swap_a(stack_a);
-	swap_b(stack_b);
-	ft_putendl_fd("ss", 1);
 }
