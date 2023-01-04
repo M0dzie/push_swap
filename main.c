@@ -6,40 +6,12 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 17:16:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/02 15:42:54 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/04 09:35:50 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-
-void	print_stack_a(t_stack *stack_a)
-{
-	t_stack	*tmp_a;
-
-	tmp_a = stack_a;
-	printf("\n");
-	while (tmp_a)
-	{
-		printf("%d\n", tmp_a->value);
-		tmp_a = tmp_a->next;
-	}
-	printf("-----\na\n\n");
-}
-
-void	print_stack_b(t_stack *stack_b)
-{
-	t_stack	*tmp;
-
-	tmp = stack_b;
-	printf("\n");
-	while (tmp)
-	{
-		printf("%d\n", tmp->value);
-		tmp = tmp->next;
-	}
-	printf("-----\nb\n\n");
-}
 
 void	free_tab(char **all_arg)
 {
@@ -62,6 +34,20 @@ void	free_stack(t_stack **stack)
 		(*stack) = next_stack;
 	}
 	(*stack) = NULL;
+}
+
+int	stack_is_sort(t_stack *stack)
+{
+	t_stack	*tmp;
+
+	while (stack->next != NULL)
+	{
+		tmp = stack->next;
+		if (stack->value > tmp->value)
+			return (-1);
+		stack = stack->next;
+	}
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -89,7 +75,6 @@ int	main(int argc, char **argv)
 		// else
 		// 	sort_large_amount(stack_a, stack_b);
 	}
-	// print_stack_a(stack_a);
 	free_stack(&stack_a);
 	free(stack_b);
 	return (0);

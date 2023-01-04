@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 12:36:10 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/02 15:19:02 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/04 09:32:06 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,5 @@ void	sort_three_arg(t_stack **stack_a);
 void	stack_add_back(t_stack **stack, t_stack *new);
 void	swap_a(t_stack **stack_a);
 void	swap_b(t_stack **stack_b);
-
-
-
-void	print_stack_a(t_stack *stack_a);
-void	print_stack_b(t_stack *stack_b);
 
 #endif
