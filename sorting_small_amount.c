@@ -6,11 +6,19 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 11:54:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/04 10:27:02 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/04 13:02:18 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_stack_b(t_stack **stack_b)
+{
+	if (!(*stack_b) || !(*stack_b)->next)
+		return ;
+	if ((*stack_b)->value < (*stack_b)->next->value)
+		swap_b(&(*stack_b));
+}
 
 void	sort_three_arg(t_stack **stack_a)
 {
@@ -57,6 +65,7 @@ void	sort_four_arg(t_stack **stack_a, t_stack **stack_b)
 	{
 		push_b(&(*stack_b), &(*stack_a));
 		sort_three_arg(&(*stack_a));
+		sort_stack_b(&(*stack_b));
 		push_a(&(*stack_a), &(*stack_b));
 		sort_four_arg(&(*stack_a), &(*stack_b));
 	}
