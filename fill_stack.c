@@ -6,13 +6,13 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 11:09:17 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/04 17:07:49 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/04 17:37:23 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*stack_new(int value)
+t_stack	*stack_new(int index)
 {
 	t_stack	*new;
 
@@ -21,7 +21,7 @@ t_stack	*stack_new(int value)
 		exit(0);
 	if (new)
 	{
-		new->value = value;
+		new->index = index;
 		new->next = 0;
 	}
 	return (new);

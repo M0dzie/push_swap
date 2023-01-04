@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 17:16:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/04 17:25:08 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/04 17:37:23 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	stack_is_sort(t_stack *stack)
 	while (stack->next != NULL)
 	{
 		tmp = stack->next;
-		if (stack->value > tmp->value)
+		if (stack->index > tmp->index)
 			return (-1);
 		stack = stack->next;
 	}

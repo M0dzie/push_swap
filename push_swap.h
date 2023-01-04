@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 12:36:10 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/04 17:27:19 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/04 17:37:23 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct s_stack
 {
-	int				value;
+	int				index;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -29,7 +29,7 @@ int		ps_isdigit(char *str);
 int		stack_is_sort(t_stack *stack);
 
 t_stack	*stack_last(t_stack *stack);
-t_stack	*stack_new(int value);
+t_stack	*stack_new(int index);
 
 void	free_stack(t_stack **stack);
 void	free_tab(char **all_arg);

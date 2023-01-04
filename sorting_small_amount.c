@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   sorting_small_amount.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 11:54:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/04 13:02:18 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/04 17:37:23 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	sort_stack_b(t_stack **stack_b)
 {
 	if (!(*stack_b) || !(*stack_b)->next)
 		return ;
-	if ((*stack_b)->value < (*stack_b)->next->value)
+	if ((*stack_b)->index < (*stack_b)->next->index)
 		swap_b(&(*stack_b));
 }
 
 void	sort_three_arg(t_stack **stack_a)
 {
-	if ((*stack_a)->value > (*stack_a)->next->value)
+	if ((*stack_a)->index > (*stack_a)->next->index)
 	{
 		rotate_a(&(*stack_a));
 		if (stack_is_sort((*stack_a)) == -1)
@@ -31,7 +31,7 @@ void	sort_three_arg(t_stack **stack_a)
 			rotate_a(&(*stack_a));
 		return ;
 	}
-	else if ((*stack_a)->value < (*stack_a)->next->value)
+	else if ((*stack_a)->index < (*stack_a)->next->index)
 	{
 		swap_a(&(*stack_a));
 		if (stack_is_sort((*stack_a)) == -1)
@@ -47,15 +47,15 @@ void	sort_four_arg(t_stack **stack_a, t_stack **stack_b)
 	t_stack *last_stack;
 
 	last_stack = stack_last((*stack_a));
-	if ((*stack_a)->value > (*stack_a)->next->value)
+	if ((*stack_a)->index > (*stack_a)->next->index)
 	{
 		swap_a(&(*stack_a));
-		if ((*stack_a)->value > last_stack->value)
+		if ((*stack_a)->index > last_stack->index)
 			reverse_rotate_a(&(*stack_a));
 	}
-	if ((*stack_a)->value < (*stack_a)->next->value)
+	if ((*stack_a)->index < (*stack_a)->next->index)
 	{
-		if ((*stack_a)->value > last_stack->value)
+		if ((*stack_a)->index > last_stack->index)
 		{
 			reverse_rotate_a(&(*stack_a));
 			sort_four_arg(&(*stack_a), &(*stack_b));
@@ -76,15 +76,15 @@ void	sort_five_arg(t_stack **stack_a, t_stack **stack_b)
 	t_stack *last_stack;
 
 	last_stack = stack_last((*stack_a));
-	if ((*stack_a)->value > (*stack_a)->next->value)
+	if ((*stack_a)->index > (*stack_a)->next->index)
 	{
 		swap_a(&(*stack_a));
-		if ((*stack_a)->value > last_stack->value)
+		if ((*stack_a)->index > last_stack->index)
 			reverse_rotate_a(&(*stack_a));
 	}
-	if ((*stack_a)->value < (*stack_a)->next->value)
+	if ((*stack_a)->index < (*stack_a)->next->index)
 	{
-		if ((*stack_a)->value > last_stack->value)
+		if ((*stack_a)->index > last_stack->index)
 		{
 			reverse_rotate_a(&(*stack_a));
 			sort_five_arg(&(*stack_a), &(*stack_b));
