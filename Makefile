@@ -6,7 +6,7 @@
 #    By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 10:35:55 by thmeyer           #+#    #+#              #
-#    Updated: 2023/01/04 13:07:04 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/01/04 13:21:53 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS = swap.c \
 		parsing.c \
 		fill_stack.c \
 		sorting_small_amount.c \
+		sorting_large_amount.c \
 		main.c
 
 OBJS = $(SRCS:%.c=objs/%.o)

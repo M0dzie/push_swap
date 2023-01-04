@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 17:16:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/04 09:35:50 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/04 13:34:40 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,14 @@ int	stack_is_sort(t_stack *stack)
 	return (0);
 }
 
+void	sorting_global(t_stack **stack_a, t_stack **stack_b, int argc)
+{
+	if (argc <= 5)
+		sort_small_amount(&stack_a, &stack_b, argc);
+	else
+		sort_large_amount(stack_a, stack_b);
+}
+
 int	main(int argc, char **argv)
 {
 	int		j;
@@ -69,21 +77,8 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (0);
 	if (stack_is_sort(stack_a) == -1)
-	{
-		if (j <= 5)
-			sort_small_amount(&stack_a, &stack_b, j);
-		// else
-		// 	sort_large_amount(stack_a, stack_b);
-	}
+		sorting_global(&(*stack_a), &(*stack_b), j);
 	free_stack(&stack_a);
 	free(stack_b);
 	return (0);
 }
-
-// Faire une fonction pour 3 et 5 nb a sort et une pour les plus grands nbs
-
-// Tout mettre sur la pile B, et check le plus haut et le plus bas de la pile
-// puis le mettre sur A : apparemment c'est le moins d'instructions
-
-// Chercher le plus petit élément du tableau, l'échanger avec le premier, 
-// recommencer en partant du second élément
