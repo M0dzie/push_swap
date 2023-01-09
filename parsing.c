@@ -6,11 +6,12 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:54:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/04 17:19:53 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/09 11:28:11 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int	ps_isdigit(char *str)
 {
