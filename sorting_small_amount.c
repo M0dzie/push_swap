@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 11:54:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/09 09:36:48 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/09 09:37:40 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	sort_four_arg(t_stack **stack_a, t_stack **stack_b)
 
 void	sort_five_arg(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *last_stack;
+	t_stack	*last_stack;
 
 	last_stack = stack_last((*stack_a));
 	if ((*stack_a)->index > (*stack_a)->next->index)
