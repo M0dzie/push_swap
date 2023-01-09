@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 11:09:17 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/01/04 17:37:23 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/01/09 09:28:02 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	fill_stack_a(t_stack **stack_a, char **all_arg)
 	while (all_arg[++n_arg])
 	{
 		i = 0;
-		index = 0;
+		index = 1;
 		while (all_arg[i])
 		{
 			if (ft_atoi(all_arg[n_arg]) > ft_atoi(all_arg[i]))
