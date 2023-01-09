@@ -6,7 +6,7 @@
 #    By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 10:35:55 by thmeyer           #+#    #+#              #
-#    Updated: 2023/01/04 17:27:38 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/01/09 12:25:28 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRCS = swap.c \
 OBJS = $(SRCS:%.c=objs/%.o)
 DIR_OBJS = objs/
 LIBFT = Libft/
-LIBFT_A = Libft/libft.a
+LIBFT_A = $(LIBFT)libft.a
 
 all: directory rsc $(NAME)
 
