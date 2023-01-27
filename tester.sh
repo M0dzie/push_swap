@@ -66,6 +66,7 @@ echo ""
 echo -e "${YELLOW}testing '-' between 2 numbers :${NOCOLOR}"
 echo -e "${GREEN}should display 'Error' in stderr :${NOCOLOR}"
 sleep .1s && ./push_swap 1 2-3 4
+echo ""
 echo -e "${YELLOW}testing '-' between 2 numbers and quotes :${NOCOLOR}"
 echo -e "${GREEN}should display 'Error' in stderr :${NOCOLOR}"
 sleep .1s && ./push_swap "1 2-3 4"
